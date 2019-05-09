@@ -1,7 +1,7 @@
 
 library(shiny)
 library(tidyverse)
-opyions <- c("Boxplot", "Violin.Plot")
+options <- c("Boxplot", "Violin.Plot")
 
 shinyUI(fluidPage(
   
