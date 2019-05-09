@@ -13,9 +13,10 @@ shinyUI(fluidPage(
   sidebarLayout(#controls layout of sidebar
     
        sidebarPanel(radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content" )), #gives ability to pick either amylose content or protein content to graph
-    radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop")), selectInput("plot", "plot type", options)), 
+    radioButtons("category", "Pick a category to graph trait against", #gives option to 
+                 c("Region", "assignedPop")), selectInput("plot", "plot type", options)), 
+
     
-    
-    mainPanel(plotOutput("boxplot"), plotOutput("violinplot")))))
+    mainPanel(conditionalPanel(condition = "input.plot == 'boxplot'", plotOutput("boxplot")), conditionalPanel(condition= "input.plot== 'violin'", plotOutput("violinplot"))))))
   
 
