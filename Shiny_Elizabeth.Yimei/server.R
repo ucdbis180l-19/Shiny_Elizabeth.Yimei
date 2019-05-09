@@ -28,6 +28,12 @@ shinyServer(function(input, output) {
     )
     
     # draw the boxplot for the specified trait
-    pl + geom_boxplot()
+    if (input$options=="Boxplot") {
+      pl + geom_boxplot()
+    } else if(input$options=="Violin.Plot"){
+      pl + geom_violin()
+    }
+    
+    
   })
 })
