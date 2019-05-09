@@ -20,8 +20,8 @@ shinyUI(fluidPage(
    
   sidebarLayout(
     
-       sidebarPanel(radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content"))) 
-    , sidebarPanel(radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop"))),
+       sidebarPanel(radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content" )),
+    radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop"))),
     
     
     mainPanel(plotOutput("boxPlot")))))
