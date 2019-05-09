@@ -14,26 +14,35 @@ library(tidyverse)
 shinyServer(function(input, output) {
    rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/data.pheno.mds.csv")
    rice.pheno <- rice.pheno %>% mutate(assignedPop=as.character(assignedPop))
-  output$boxPlot <- renderPlot({
-    # set up the plot
-    pl <- ggplot(data = rice.pheno,
-                 #Use aes_string below so that input$trait is interpreted
-                 #correctly.  The other variables need to be quoted
-                 aes_string(x=input$category,
-                            y=input$trait,
-                            fill=input$category
-                            
-                            
-                 )
-    )
-    
-    # draw the boxplot for the specified trait
-    if (input$options=="Boxplot") {
-      pl + geom_boxplot()
-    } else if(input$options=="Violin.Plot"){
-      pl + geom_violin()
-    }
-    
-    
-  })
+
+     output$boxplot <- renderPlot({
+       # set up the plot
+       
+       pl <- ggplot(data = rice.pheno,
+                    #Use aes_string below so that input$trait is interpreted
+                    #correctly.  The other variables need to be quoted
+                    aes_string(x=input$category,
+                               y=input$trait,
+                               fill=input$category)
+       )
+       # draw the boxplot for the specified trait
+       pl + geom_boxplot()
+     })
+
+     output$violinplot <- renderPlot({
+       # set up the plot
+       
+       pl <- ggplot(data = rice.pheno,
+                    #Use aes_string below so that input$trait is interpreted
+                    #correctly.  The other variables need to be quoted
+                    aes_string(x=input$category,
+                               y=input$trait,
+                               fill=input$category))
+       
+       # draw the boxplot for the specified trait
+       pl + geom_violin()
+       
+     })
+
+  
 })
