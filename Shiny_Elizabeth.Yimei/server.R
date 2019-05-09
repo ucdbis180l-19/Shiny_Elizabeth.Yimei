@@ -8,19 +8,23 @@
 #
 
 library(shiny)
+library(tidyverse)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
+   rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv")
+  output$boxPlot <- renderPlot({
+    # set up the plot
+    pl <- ggplot(data = rice.pheno,
+                 #Use aes_string below so that input$trait is interpreted
+                 #correctly.  The other variables need to be quoted
+                 aes_string(x="Region",
+                            y=input$trait,
+                            fill="Region"
+                 )
+    )
     
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+    # draw the boxplot for the specified trait
+    pl + geom_boxplot()
   })
-  
 })
