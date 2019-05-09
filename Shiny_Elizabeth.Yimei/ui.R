@@ -14,9 +14,9 @@ library(tidyverse)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Amylose or Protein Content by Region or Population"),
+  titlePanel("Amylose or Protein Content by Region or Assigned Population"),
   
-  helpText("This should plot either amylose content or protein content of rice plants by region or assigned population."),
+  helpText("This will plot either amylose content or protein content of rice plants by region or population assigned based on SNPs."),
    
   sidebarLayout(
     
