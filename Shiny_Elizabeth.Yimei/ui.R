@@ -1,7 +1,7 @@
 
 library(shiny)
 library(tidyverse)
-options <- c("Boxplot", "Violin.Plot")
+options <- c("boxplot", "violin")
 
 shinyUI(fluidPage(
   
@@ -16,6 +16,6 @@ shinyUI(fluidPage(
     radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop")), selectInput("plot", "plot type", options)), 
     
     
-    mainPanel(plotOutput("boxPlot")))))
+    mainPanel(plotOutput("plot")))))
   
 
