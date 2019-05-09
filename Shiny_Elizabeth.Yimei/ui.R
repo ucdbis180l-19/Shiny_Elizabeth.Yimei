@@ -19,9 +19,9 @@ shinyUI(fluidPage(
   helpText("This should plot either amylose content or protein content by region"),
    
   sidebarLayout(
-    sidebarPanel(
-       radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content"))) 
-    , sidebarPanel("category", "Pick a category to graph trait against", c("Region", "assignedPop")),
+    tabsetPanel(
+       tabPanel(radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content"))) 
+    , tabPanel(radiobuttons("category", "Pick a category to graph trait against", c("Region", "assignedPop")))),
     
     
     mainPanel(plotOutput("boxPlot")))))
