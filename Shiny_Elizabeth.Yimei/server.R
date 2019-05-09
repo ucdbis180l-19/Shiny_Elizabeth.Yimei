@@ -12,15 +12,17 @@ library(tidyverse)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv")
+   rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/data.pheno.mds.csv")
   output$boxPlot <- renderPlot({
     # set up the plot
     pl <- ggplot(data = rice.pheno,
                  #Use aes_string below so that input$trait is interpreted
                  #correctly.  The other variables need to be quoted
-                 aes_string(x="Region",
+                 aes_string(x=input$category,
                             y=input$trait,
-                            fill="Region"
+                            fill=input$category
+                            
+                            
                  )
     )
     
