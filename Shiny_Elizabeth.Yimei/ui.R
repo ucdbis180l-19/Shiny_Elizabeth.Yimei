@@ -8,26 +8,24 @@
 #
 
 library(shiny)
+library(tidyverse)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Test App"),
   
-  # Sidebar with a slider input for number of bins 
+  helpText("This should plot either amylose content or protein content by region"),
+   
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+       radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content")) )
     ),
     
-    # Show a plot of the generated distribution
+    
     mainPanel(
-       plotOutput("distPlot")
+       plotOutput("boxPlot")
     )
   )
-))
+)
