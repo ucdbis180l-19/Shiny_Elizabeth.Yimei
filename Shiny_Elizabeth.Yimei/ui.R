@@ -9,7 +9,7 @@
 
 library(shiny)
 library(tidyverse)
-
+opyions <- c("Boxplot", "Violin.Plot")
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
@@ -21,7 +21,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     
        sidebarPanel(radioButtons("trait", "Pick a trait to graph:", c("Amylose.content", "Protein.content" )),
-    radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop"))),
+    radioButtons("category", "Pick a category to graph trait against", c("Region", "assignedPop")), selectInput("plot", "plot type", options)), 
     
     
     mainPanel(plotOutput("boxPlot")))))
