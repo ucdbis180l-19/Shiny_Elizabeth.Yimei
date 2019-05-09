@@ -9,10 +9,10 @@
 
 library(shiny)
 library(tidyverse)
-
+ 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/data.pheno.mds.csv")
+   rice.pheno<-read.csv("/home/ubuntu/Assignments/Assignment_4_Roberts.Elizabeth/geno.mds.csv")
   output$boxPlot <- renderPlot({
     # set up the plot
     pl <- ggplot(data = rice.pheno,
