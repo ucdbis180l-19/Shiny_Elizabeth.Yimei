@@ -14,7 +14,7 @@ library(tidyverse)
 shinyServer(function(input, output) {
    rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/data.pheno.mds.csv")
    rice.pheno <- rice.pheno %>% mutate(assignedPop=as.character(assignedPop))
-
+   
      output$boxplot <- renderPlot({
        # set up the plot
        
