@@ -12,7 +12,7 @@ library(tidyverse)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   rice.pheno<-read.csv("/home/ubuntu/Desktop/hw/4/data.pheno.mds.csv")
+   rice.pheno<-read.csv("data.pheno.mds.csv")
    rice.pheno <- rice.pheno %>% mutate(assignedPop=as.character(assignedPop))
    
      output$boxplot <- renderPlot({
